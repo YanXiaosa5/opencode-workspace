@@ -1,0 +1,17 @@
+{
+  "chat.roleAssistant": {
+    "defaultMessage": "Assistant"
+  },
+  "chat.roleUser": {
+    "defaultMessage": "You"
+  },
+  "cancel": {
+    "defaultMessage": "Cancel"
+  },
+  "delete_account": {
+    "defaultMessage": "Delete Account"
+  },
+  "restore": {
+    "defaultMessage": "Restore"
+  }
+}

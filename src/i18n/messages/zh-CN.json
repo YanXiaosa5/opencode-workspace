@@ -1,0 +1,17 @@
+{
+  "cancel": {
+    "defaultMessage": "取消"
+  },
+  "delete_account": {
+    "defaultMessage": "删除账号"
+  },
+  "restore": {
+    "defaultMessage": "恢复"
+  },
+  "chat.roleAssistant": {
+    "defaultMessage": "Assistant"
+  },
+  "chat.roleUser": {
+    "defaultMessage": "You"
+  }
+}
