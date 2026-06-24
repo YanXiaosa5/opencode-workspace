@@ -8,17 +8,17 @@ const messageCache = new Map<string, CompiledMessages>()
 const localeModules: Record<string, () => Promise<{ default: CompiledMessages }>> = {
   en: () => import('./compiled/en.json'),
   'zh-CN': () => import('./compiled/zh-CN.json'),
-  id: () => import('./compiled/id.json'),
-  th: () => import('./compiled/th.json'),
-  tl: () => import('./compiled/tl.json'),
-  ms: () => import('./compiled/ms.json'),
-  vi: () => import('./compiled/vi.json'),
-  es: () => import('./compiled/es.json'),
-  pt: () => import('./compiled/pt.json'),
-  fr: () => import('./compiled/fr.json'),
-  ja: () => import('./compiled/ja.json'),
-  ko: () => import('./compiled/ko.json'),
-  hi: () => import('./compiled/hi.json')
+  // id: () => import('./compiled/id.json'),
+  // th: () => import('./compiled/th.json'),
+  // tl: () => import('./compiled/tl.json'),
+  // ms: () => import('./compiled/ms.json'),
+  // vi: () => import('./compiled/vi.json'),
+  // es: () => import('./compiled/es.json'),
+  // pt: () => import('./compiled/pt.json'),
+  // fr: () => import('./compiled/fr.json'),
+  // ja: () => import('./compiled/ja.json'),
+  // ko: () => import('./compiled/ko.json'),
+  // hi: () => import('./compiled/hi.json')
 }
 
 export const SUPPORTED_LOCALES = Object.keys(localeModules) as string[]
