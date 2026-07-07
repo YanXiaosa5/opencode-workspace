@@ -8,48 +8,6 @@
   overflow: hidden;
 }
 
-/* ---- Left Sidebar ---- */
-.lp-sidebar {
-  width: 288px;
-  min-width: 288px;
-  height: 100%;
-  background: rgba(217, 217, 217, 0.08);
-  border-right: 1px solid rgba(194, 198, 216, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 22px 28px 0;
-  /* macOS drag region */
-  -webkit-app-region: drag;
-}
-
-/* Window control dots */
-.lp-window-controls {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  -webkit-app-region: no-drag;
-}
-
-.lp-wc {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
-}
-
-.lp-wc-close {
-  background: #ff736a;
-}
-
-.lp-wc-minimize {
-  background: #febc2e;
-}
-
-.lp-wc-zoom {
-  background: #19c332;
-}
 
 /* ---- Main Content ---- */
 .lp-main {

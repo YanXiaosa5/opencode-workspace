@@ -65,3 +65,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ev-c-text-1: rgba(20, 20, 30, 0.9);
+    --ev-c-text-2: rgba(40, 40, 60, 0.6);
+    --ev-c-text-3: rgba(40, 40, 60, 0.38);
+
+    --ev-c-black-soft: #f4f4f6;
+    --ev-c-black-mute: #ebebef;
+    --ev-c-gray-2: #d0d3dc;
+    --ev-c-gray-3: #e4e6ed;
+
+    --ev-button-alt-border: transparent;
+    --ev-button-alt-text: var(--ev-c-text-1);
+    --ev-button-alt-bg: #e8e8ee;
+    --ev-button-alt-hover-border: transparent;
+    --ev-button-alt-hover-text: var(--ev-c-text-1);
+    --ev-button-alt-hover-bg: #d8d8e0;
+
+    --color-background: #ffffff;
+    --color-background-soft: #f4f4f6;
+    --color-background-mute: #ebebef;
+    --color-text: rgba(20, 20, 30, 0.9);
+  }
+}

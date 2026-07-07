@@ -229,6 +229,7 @@ function ModeSelector(): React.JSX.Element {
 function HomePage(): React.JSX.Element {
   const navigate = useNavigate()
   const [inputValue, setInputValue] = useState('')
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   const userName = localStorage.getItem('userName') || 'User'
@@ -258,21 +259,18 @@ function HomePage(): React.JSX.Element {
   return (
     <div className="hp-root">
       {/* ===== Left Sidebar ===== */}
-      <aside className="hp-sidebar">
+      <aside className={`hp-sidebar${sidebarCollapsed ? ' hp-sidebar--collapsed' : ''}`}>
         <div className="hp-sidebar-top">
-          {/* macOS window controls */}
-          <div className="hp-window-controls">
-            <span className="hp-wc hp-wc-close" />
-            <span className="hp-wc hp-wc-minimize" />
-            <span className="hp-wc hp-wc-zoom" />
-          </div>
-
           {/* Collapse icon */}
-          <button className="hp-collapse-btn" title="收起侧边栏">
+          <button
+            className={`hp-collapse-btn${sidebarCollapsed ? ' hp-collapse-btn--collapsed' : ''}`}
+            title={sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'}
+            onClick={() => setSidebarCollapsed((v) => !v)}
+          >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M13 4L7 10l6 6"
-                stroke="#3F434B"
+                stroke="currentColor"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -282,11 +280,68 @@ function HomePage(): React.JSX.Element {
         </div>
 
         {/* Nav area */}
-        <nav className="hp-nav" />
+        <nav className="hp-nav">
+          <button className="hp-nav-btn">
+            <span className="hp-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M9 2v14M2 9h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </span>
+            <span className="hp-nav-text">新建会话</span>
+          </button>
+          <button className="hp-nav-btn">
+            <span className="hp-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M11.5 11.5L16 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </span>
+            <span className="hp-nav-text">搜索</span>
+          </button>
+        </nav>
+
+        {/* Middle area (Recent / Projects) */}
+        <div className="hp-recent">
+          <div className="hp-recent-title">最近会话</div>
+          <div className="hp-recent-list">
+            <button className="hp-recent-item">
+              <span className="hp-recent-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1.5v11M1.5 7h11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </span>
+              <span className="hp-recent-text">如何使用 useEffect</span>
+            </button>
+            <button className="hp-recent-item">
+              <span className="hp-recent-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1.5v11M1.5 7h11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </span>
+              <span className="hp-recent-text">Electron IPC 通信机制</span>
+            </button>
+          </div>
+          <div className="hp-recent-title" style={{ marginTop: '20px' }}>项目列表</div>
+          <div className="hp-recent-list">
+            <button className="hp-recent-item">
+              <span className="hp-recent-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <rect x="2" y="3" width="10" height="8" rx="1" stroke="currentColor" strokeWidth="1.2" />
+                </svg>
+              </span>
+              <span className="hp-recent-text">Agnes Desktop</span>
+            </button>
+          </div>
+        </div>
 
         {/* Bottom user info */}
         <div className="hp-sidebar-bottom">
-          <div className="hp-user-info">
+          <div
+              className="hp-user-info"
+              style={{ cursor: 'pointer' }}
+              onClick={() => navigate('/settings?tab=profile')}
+              title="查看个人资料"
+            >
             <div className="hp-avatar">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="12" r="12" fill="url(#av-grad)" />
@@ -311,12 +366,12 @@ function HomePage(): React.JSX.Element {
             </div>
           </div>
 
-          <div className="hp-user-actions">
+          <div className={`hp-user-actions${sidebarCollapsed ? ' hp-user-actions--collapsed' : ''}`}>
             <button className="hp-icon-btn" title="退出登录" onClick={handleLogout}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M11 11l3-3-3-3M14 8H6"
-                  stroke="#6B7280"
+                  stroke="currentColor"
                   strokeWidth="1.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -325,10 +380,10 @@ function HomePage(): React.JSX.Element {
             </button>
             <button className="hp-icon-btn" title="设置" onClick={() => navigate('/settings')}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="2" stroke="#6B7280" strokeWidth="1.4" />
+                <circle cx="8" cy="8" r="2" stroke="currentColor" strokeWidth="1.4" />
                 <path
                   d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"
-                  stroke="#6B7280"
+                  stroke="currentColor"
                   strokeWidth="1.4"
                   strokeLinecap="round"
                 />

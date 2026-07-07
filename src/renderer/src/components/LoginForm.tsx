@@ -34,15 +34,6 @@ function LoginForm(): React.JSX.Element {
 
   return (
     <div className="lp-root">
-      {/* Left sidebar */}
-      <aside className="lp-sidebar">
-        <div className="lp-window-controls">
-          <span className="lp-wc lp-wc-close" />
-          <span className="lp-wc lp-wc-minimize" />
-          <span className="lp-wc lp-wc-zoom" />
-        </div>
-      </aside>
-
       {/* Right content */}
       <main className="lp-main">
         <div className="lp-card">

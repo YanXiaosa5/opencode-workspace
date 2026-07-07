@@ -1,0 +1,266 @@
+/* ===== Settings Page Layout ===== */
+
+.sp-root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: #f7f7f8;
+  overflow: hidden;
+}
+
+/* ---- Left Sidebar ---- */
+.sp-sidebar {
+  width: 220px;
+  min-width: 220px;
+  height: 100%;
+  background: rgba(217, 217, 217, 0.12);
+  border-right: 1px solid rgba(194, 198, 216, 0.3);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  -webkit-app-region: drag;
+}
+
+.sp-sidebar-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+}
+
+.sp-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #3f434b;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 12px;
+  padding: 6px 10px;
+  transition: background 0.15s;
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+}
+
+.sp-back-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sp-nav {
+  flex: 1;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  -webkit-app-region: no-drag;
+}
+
+.sp-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f434b;
+  width: 100%;
+  text-align: left;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+}
+
+.sp-nav-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sp-nav-item--active {
+  background: rgba(50, 72, 175, 0.08);
+  color: #3248af;
+  font-weight: 500;
+}
+
+.sp-nav-item--active:hover {
+  background: rgba(50, 72, 175, 0.12);
+}
+
+.sp-nav-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ---- Right Content ---- */
+.sp-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 48px;
+  background: #ffffff;
+}
+
+/* ---- Panel Common ---- */
+.sp-page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #191c1d;
+  margin: 0 0 6px;
+}
+
+.sp-page-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0 0 32px;
+}
+
+.sp-section {
+  margin-bottom: 28px;
+}
+
+.sp-section-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #3f434b;
+  margin: 0 0 12px;
+}
+
+/* ---- Profile Panel ---- */
+.sp-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(217, 217, 217, 0.08);
+  border: 1px solid rgba(194, 198, 216, 0.3);
+  border-radius: 16px;
+}
+
+.sp-profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3248af 0%, #6c84e8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.sp-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sp-profile-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #191c1d;
+  font-family: 'Inter', 'PingFang SC', sans-serif;
+}
+
+.sp-profile-email {
+  font-size: 14px;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+}
+
+.sp-profile-plan {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 6px;
+  padding: 2px 12px;
+  background: rgba(50, 72, 175, 0.08);
+  border: 1px solid rgba(50, 72, 175, 0.2);
+  border-radius: 999px;
+  font-size: 12px;
+  color: #3248af;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  width: fit-content;
+}
+
+/* ---- Dark mode ---- */
+@media (prefers-color-scheme: dark) {
+  .sp-root {
+    background: #18181c;
+  }
+
+  .sp-sidebar {
+    background: rgba(255, 255, 255, 0.03);
+    border-right-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .sp-back-btn {
+    color: rgba(255, 255, 245, 0.86);
+  }
+
+  .sp-back-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .sp-nav-item {
+    color: rgba(255, 255, 245, 0.7);
+  }
+
+  .sp-nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .sp-nav-item--active {
+    background: rgba(50, 72, 175, 0.2);
+    color: #7b96f8;
+  }
+
+  .sp-nav-item--active:hover {
+    background: rgba(50, 72, 175, 0.28);
+  }
+
+  .sp-content {
+    background: #1b1b1f;
+  }
+
+  .sp-page-title {
+    color: rgba(255, 255, 245, 0.86);
+  }
+
+  .sp-page-desc {
+    color: rgba(255, 255, 245, 0.45);
+  }
+
+  .sp-section-title {
+    color: rgba(255, 255, 245, 0.7);
+  }
+
+  .sp-profile-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .sp-profile-name {
+    color: rgba(255, 255, 245, 0.86);
+  }
+
+  .sp-profile-email {
+    color: rgba(255, 255, 245, 0.5);
+  }
+
+  .sp-profile-plan {
+    background: rgba(50, 72, 175, 0.15);
+    border-color: rgba(50, 72, 175, 0.3);
+    color: #7b96f8;
+  }
+}
