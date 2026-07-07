@@ -152,3 +152,43 @@ When adding, modifying, or deleting any i18n text or translations in the codebas
 - **Definition of Task Completion**: The task is only considered complete when `pnpm i18n:check` passes with zero errors, and all generated files are correctly updated in the workspace.
 - **⚠️ DO NOT COMMIT OR PUSH**: Your responsibility ends with generating and verifying the local files. **Do not** run `git commit`, `git push`, or use any git tools to stage/commit the changes. Leave the modified workspace as-is for the developer to review and commit manually.
 - If `pnpm i18n:check` fails, you **MUST** inspect the error terminal output, fix the source code or messages, and re-run the entire pipeline until it passes.
+
+
+# 桌面端 UI 文本样式强制规范
+
+你在修改任何设置、外观、关于、隐私等面板的组件时，必须严格遵守以下文本样式 Tokens。禁止使用任何规范之外的字号、字重与颜色组合。
+
+## 一、 文本 Tokens 映射表
+
+| 文本类型 / 语义 | 字号 (Font Size) | 字重 (Font Weight) | 颜色十六进制 (Color) | 特殊技术要求 |
+| :--- | :--- | :--- | :--- | :--- |
+| **页面大标题** (如“外观”) | `20px` | `700` (Bold) | `#191C1D` | - |
+| **页面说明文字** | `14px` | `500` (Medium) | `#6B7280` | - |
+| **二级标题** (主题/语言/隐私/帮助) | `16px` | `400` (Regular) | `#3F434B` | - |
+| **版本号** | `20px` | `400` (Regular) | `#3F434B` | 必须强制使用等宽字体 (`font-family: monospace`) |
+| **设置项名称** | `14px` | `400` (Regular) | `#3F434B` | - |
+| **描述和提示文字** | `14px` | `400` (Regular) | `#878787` | - |
+| **下拉框文字** | `14px` | `400` (Regular) | `#3F434B` | - |
+| **普通浅蓝按钮文字** | `14px` | `400` (Regular) | `#485054` | - |
+| **未选中的主题按钮** | `14px` | `400` (Regular) | `#878787` | - |
+| **选中的主题按钮** | `14px` | `400` (Regular) | `#FFFFFF` | - |
+
+---
+
+## 二、 AI 自动化全量修改执行策略
+
+AI 助理（如 Cline / Cursor）在对相关目录进行代码重构时，**必须严格遵守以下流式流水线步骤与核心铁律**：
+
+### 1. 核心铁律 (Core Rules)
+* **精准替换**：严格按照规范中的字号、字重和颜色进行代码替换。严禁为了省事使用相近色，必须精准替换为对应的 `#十六进制` 颜色、`px` 值及字重。
+* **质量卡点**：**每完成一个文件的修改，请自动运行编译或格式化进行检查**，确保没有打破原本的布局结构。如果编译报错，必须立即在当前步骤修复，严禁带着报错继续修改下一个文件。
+* **拒绝盲猜**：**遇到拿不准语义的文本，停下来提示我，不要盲目猜测。**
+
+### 2. 标准重构流水线 (Step-by-Step Pipeline)
+* **步骤 [扫描]**：在编辑文件前，先完全读取该文件内容，对其中包含的文案进行“语义分类”（例如：识别出某行文字属于“二级标题”，某行属于“描述和提示文字”）。
+* **步骤 [映射]**：严格执行“精准替换”铁律，转换为当前项目使用的样式方案（若是 Tailwind 请使用对应 class，若是 inline-style/CSS 请直接使用属性值）。
+* **步骤 [等宽处理]**：审查到“版本号”相关文案时，检查并补全等宽字体样式。
+* **步骤 [验证]**：执行“质量卡点”铁律，运行本地的格式化/编译命令（如 `npm run lint` 或 `npm run build` 相关校验）。
+* **步骤 [原子化中断]**：**单次对话仅允许修改一个文件。** 完成一个文件的修改、编译验证无误后，必须主动停止并阻断，等待用户点击确认（Approve），切勿在单次请求中连续洗盘多个文件。
+
+

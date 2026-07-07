@@ -1,0 +1,527 @@
+/* ===== Agnes Home Page Styles ===== */
+
+.hp-root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* ============ Sidebar ============ */
+.hp-sidebar {
+  width: 288px;
+  min-width: 288px;
+  height: 100%;
+  background: rgba(217, 217, 217, 0.08);
+  border-right: 1px solid rgba(194, 198, 216, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  -webkit-app-region: drag;
+}
+
+/* Top bar (window controls + collapse btn) */
+.hp-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 20px 0 28px;
+  flex-shrink: 0;
+}
+
+.hp-window-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  -webkit-app-region: no-drag;
+}
+
+.hp-wc {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.hp-wc-close { background: #ff736a; }
+.hp-wc-minimize { background: #febc2e; }
+.hp-wc-zoom { background: #19c332; }
+
+.hp-collapse-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-app-region: no-drag;
+}
+
+.hp-collapse-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Nav area */
+.hp-nav {
+  flex: 1;
+}
+
+/* Bottom user bar */
+.hp-sidebar-bottom {
+  height: 66px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(194, 198, 216, 0.2);
+  -webkit-app-region: no-drag;
+}
+
+.hp-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hp-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #f9f9f9 0%, #ebebeb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hp-user-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hp-user-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #191c1d;
+  line-height: 18px;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hp-user-plan {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 16px;
+}
+
+.hp-user-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hp-icon-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  padding: 4px;
+}
+
+.hp-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ============ Main Content ============ */
+.hp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  position: relative;
+  padding: 0 40px;
+}
+
+.hp-center {
+  width: 100%;
+  max-width: 776px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Heading */
+.hp-heading {
+  font-family: 'Hanken Grotesk', 'Inter', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #191c1d;
+  text-align: center;
+  line-height: 50px;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* ---- Input Card ---- */
+.hp-input-card-wrap {
+  width: 100%;
+  position: relative;
+}
+
+/* Shadow/glow layer behind the card */
+.hp-input-card-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: rgba(194, 198, 216, 0.2);
+  transform: translate(0, 4px);
+  z-index: 0;
+}
+
+.hp-input-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 0.5px solid #3248af;
+  border-radius: 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 16px 16px 12px;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.hp-input-card:focus-within {
+  box-shadow: 0 0 0 3px rgba(50, 72, 175, 0.12);
+}
+
+.hp-textarea {
+  width: 100%;
+  min-height: 72px;
+  max-height: 200px;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  font-family: 'PingFang SC', 'Noto Sans SC', 'Inter', sans-serif;
+  font-size: 14px;
+  color: #191c1d;
+  line-height: 22px;
+  padding: 0;
+}
+
+.hp-textarea::placeholder {
+  color: #6b7280;
+}
+
+.hp-input-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.hp-input-hints {
+  display: flex;
+  gap: 12px;
+}
+
+.hp-hint-tag {
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: #9ca3af;
+  cursor: default;
+  user-select: none;
+}
+
+/* Send button */
+.hp-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(194, 198, 216, 0.5);
+  background: transparent;
+  color: #c3cad8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.12s;
+  flex-shrink: 0;
+}
+
+.hp-send-btn--active {
+  background: #3248af;
+  border-color: #3248af;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.hp-send-btn--active:hover {
+  background: #2a3d9e;
+  transform: translateY(-1px);
+}
+
+/* ---- Quick Tags ---- */
+.hp-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hp-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 16px;
+  border: 1px solid rgba(194, 198, 216, 0.3);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    transform 0.12s;
+}
+
+.hp-tag:hover {
+  border-color: rgba(50, 72, 175, 0.4);
+  background: rgba(50, 72, 175, 0.04);
+  transform: translateY(-1px);
+}
+
+.hp-tag-icon {
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+.hp-tag-label {
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: #191c1d;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+/* ============ Mode Selector ============ */
+.ms-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Trigger chip */
+.ms-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid rgba(50, 72, 175, 0.3);
+  border-radius: 999px;
+  background: rgba(50, 72, 175, 0.06);
+  color: #3248af;
+  cursor: pointer;
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    box-shadow 0.18s;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.ms-chip:hover {
+  background: rgba(50, 72, 175, 0.1);
+  border-color: rgba(50, 72, 175, 0.5);
+}
+
+.ms-chip--open {
+  background: rgba(50, 72, 175, 0.12);
+  border-color: #3248af;
+  box-shadow: 0 0 0 3px rgba(50, 72, 175, 0.1);
+}
+
+.ms-chip-icon {
+  flex-shrink: 0;
+}
+
+.ms-chip-label {
+  line-height: 1;
+}
+
+.ms-chip-arrow {
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ms-chip-arrow--up {
+  transform: rotate(180deg);
+}
+
+/* Popup card */
+.ms-popup {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(194, 198, 216, 0.35);
+  box-shadow:
+    0 8px 32px rgba(50, 72, 175, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  z-index: 100;
+  animation: ms-popup-in 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes ms-popup-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.ms-popup-header {
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: #9ca3af;
+  padding: 8px 12px 6px;
+  letter-spacing: 0.03em;
+}
+
+/* Option row */
+.ms-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+
+.ms-option:hover {
+  background: rgba(50, 72, 175, 0.05);
+}
+
+.ms-option--active {
+  background: rgba(50, 72, 175, 0.07);
+}
+
+.ms-option-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ms-option-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(194, 198, 216, 0.4);
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  flex-shrink: 0;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.ms-option-icon-wrap--active {
+  background: rgba(50, 72, 175, 0.1);
+  border-color: rgba(50, 72, 175, 0.3);
+  color: #3248af;
+}
+
+.ms-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ms-option-label {
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #191c1d;
+  line-height: 20px;
+}
+
+.ms-option-desc {
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 16px;
+}
+
+.ms-option-check {
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* ---- Bottom Disclaimer ---- */
+.hp-disclaimer {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: #c3cad8;
+  text-align: center;
+  line-height: 16px;
+  margin: 0;
+  white-space: nowrap;
+}
