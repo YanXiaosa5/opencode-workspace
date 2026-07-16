@@ -80,7 +80,7 @@ When the user asks to create a new feature that requires system-level access, yo
 
 When a task is successfully completed and verified:
 
-1. **[Lint & Format]**: Automatically run `npm run lint` and `npm run format`. Fix any minor style issues yourself.
+1. **[Lint]**: Automatically run `npm run lint`. Fix any minor style issues yourself.
 2. **[Git Status]**: Run `git status` and `git diff` to review all your modifications.
 3. **[Propose Commit]**: Generate a concise, standard Semantic Commit Message (e.g., `feat(ipc): add local file saving bridge`) and ask the user for confirmation to commit.
 
